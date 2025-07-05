@@ -7,14 +7,14 @@ namespace SchoolCommunity.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public string? Username { get; set; }  
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }  
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        public string Email { get; set; }    
 
-        [Required, EmailAddress]
-        public string? Email { get; set; }     
-
-        [Required]
-        public string? Password { get; set; } 
+        [Required(ErrorMessage = "Password is required")]
+        public string Password { get; set; } 
 
         public string? Bio { get; set; }
         public string? ProfilePictureUrl { get; set; }
@@ -22,3 +22,4 @@ namespace SchoolCommunity.Models
         public List<Post> Posts { get; set; } = new();
     }
 }
+
