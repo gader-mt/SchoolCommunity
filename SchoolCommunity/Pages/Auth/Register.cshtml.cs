@@ -12,7 +12,8 @@ namespace SchoolCommunity.Pages.Auth
         public RegisterModel(AppDbContext context) => _context = context;
 
         [BindProperty]
-        public SchoolCommunity.Models.User? NewUser { get; set; }  
+        public SchoolCommunity.Models.User NewUser { get; set; } = new();
+
 
         public string? Message { get; set; }
 
@@ -20,7 +21,13 @@ namespace SchoolCommunity.Pages.Auth
 
         public IActionResult OnPost()
         {
-            if (NewUser == null)  
+            if (!ModelState.IsValid)
+            {
+                Message = "Please fill all required fields.";
+                return Page();
+            }
+
+            if (NewUser == null)
             {
                 Message = "Something went wrong. Please try again.";
                 return Page();
