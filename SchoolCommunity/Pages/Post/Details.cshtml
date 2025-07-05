@@ -1,0 +1,56 @@
+﻿@page "{id:int}"
+@model SchoolCommunity.Pages.Post.DetailsModel
+@{
+    ViewData["Title"] = "Post Details";
+}
+
+@if (Model.Post == null)
+{
+    <p>Post not found.</p>
+}
+else
+{
+    <h2>@Model.Post.Title</h2>
+
+    <p><strong>By:</strong> @Model.Post.User?.Username (@Model.Post.CreatedAt.ToShortDateString())</p>
+    <p>@Model.Post.Content</p>
+
+    @if (!string.IsNullOrEmpty(Model.Post.ImageUrl))
+    {
+        <img src="@Model.Post.ImageUrl" class="img-fluid mt-2" style="max-width: 300px; border-radius: 10px;" />
+    }
+
+    @if (!string.IsNullOrEmpty(Model.Post.Link))
+    {
+        <p><a href="@Model.Post.Link" target="_blank">Visit Link</a></p>
+    }
+
+    <hr />
+    <h3>Comments</h3>
+
+    @if (Model.Post.Comments?.Any() == true)
+    {
+        <ul>
+            @foreach (var comment in Model.Post.Comments)
+            {
+                <li><strong>@comment.User?.Username:</strong> @comment.Text (@comment.CreatedAt.ToShortDateString())</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No comments yet.</p>
+    }
+
+    @if (Model.IsLoggedIn)
+    {
+        <form method="post">
+            <textarea asp-for="NewCommentText" placeholder="Write a comment..."></textarea><br />
+            <button type="submit">Add Comment</button>
+        </form>
+    }
+    else
+    {
+        <p><a asp-page="/Auth/Login">Login</a> to add a comment.</p>
+    }
+}

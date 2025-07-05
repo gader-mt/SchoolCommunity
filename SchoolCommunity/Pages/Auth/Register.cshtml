@@ -1,0 +1,24 @@
+﻿@page
+@model SchoolCommunity.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<h2>Create Account</h2>
+<div class="form-card">
+<form method="post">
+    <div>
+        <label>Username</label>
+        <input asp-for="NewUser.Username" />
+    </div>
+    <div>
+        <label>Email</label>
+        <input asp-for="NewUser.Email" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="NewUser.Password" type="password" />
+    </div>
+    <button type="submit">Register</button>
+    <p>@Model.Message</p>
+</form>
+</div>

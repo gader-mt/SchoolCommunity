@@ -1,0 +1,79 @@
+﻿@page
+@model SchoolCommunity.Pages.User.ProfileModel
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+@if (Model.CurrentUser == null)
+{
+    <div class="alert alert-warning text-center mt-4">You are not logged in.</div>
+}
+else
+{
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <span class="avatar-icon">👤</span>
+            </div>
+            <div class="profile-info">
+                <h2>@Model.CurrentUser.Username’s Page</h2>
+                <p><strong>Email:</strong> @Model.CurrentUser.Email</p>
+                <p><strong>Bio:</strong> @Model.CurrentUser.Bio</p>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <a class="btn profile-btn blue-btn" asp-page="/User/Edit">Edit Profile</a>
+            <a class="btn profile-btn green-btn" asp-page="/Post/Create">Create New Post</a>
+            <form method="post" asp-page="/Auth/Logout" class="d-inline">
+                <button type="submit" class="btn profile-btn red-btn">Sign Out</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="my-posts">
+        <h3>My Posts</h3>
+
+        @if (Model.CurrentUser.Posts == null || Model.CurrentUser.Posts.Count == 0)
+        {
+            <p class="text-muted">No posts yet.</p>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var post in Model.CurrentUser.Posts)
+                {
+                    <div class="col-md-6 mb-4">
+                        <div class="post-card profile-post">
+                            <h5>@post.Title</h5>
+                            <small class="text-muted">@post.CreatedAt.ToShortDateString()</small>
+                            <p>@post.Content</p>
+
+                            @if (!string.IsNullOrEmpty(post.ImageUrl))
+                            {
+                                <div class="mt-2">
+                                    <img src="@post.ImageUrl" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;" />
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(post.Link))
+                            {
+                                <div class="mt-2"><a href="@post.Link" target="_blank">@post.Link</a></div>
+                            }
+
+                            <div class="mt-3 d-flex gap-2">
+                                <a class="btn btn-sm btn-outline-primary" asp-page="/Post/Details" asp-route-id="@post.Id">View</a>
+                                <form method="post" asp-page-handler="DeletePost" asp-route-id="@post.Id">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+
+

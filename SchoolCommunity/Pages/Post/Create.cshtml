@@ -1,0 +1,37 @@
+﻿@page
+@model SchoolCommunity.Pages.Post.CreateModel
+@{
+    ViewData["Title"] = "Create Post";
+}
+
+<h2>Create New Post</h2>
+
+<form method="post" enctype="multipart/form-data" class="mt-4">
+    <div class="mb-3">
+        <label asp-for="Post.Title" class="form-label">Title</label>
+        <input asp-for="Post.Title" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Post.Content" class="form-label">Content</label>
+        <textarea asp-for="Post.Content" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Post.Link" class="form-label">Optional Link</label>
+        <input asp-for="Post.Link" class="form-control" placeholder="https://example.com" />
+    </div>
+
+    <div class="mb-3">
+        <label for="ImageFile" class="form-label">Optional Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Post</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-danger mt-3">@Model.Message</div>
+}
+

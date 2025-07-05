@@ -1,0 +1,379 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #f1f8ff);
+    color: #333;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    color: #34495e !important;
+    transition: color 0.2s ease;
+}
+
+    .nav-link:hover {
+        color: #1abc9c !important;
+    }
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    padding: 0.3rem 0.6rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    outline: none;
+    width: 160px;
+}
+
+
+
+    .search-btn:hover {
+        background-color: #55b3b7;
+    }
+
+
+.home-card {
+    max-width: 900px;
+    margin: 4rem auto 3rem;
+    background: #fdfefe;
+    border-radius: 25px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+    .home-card h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+        color: #2c3e50;
+    }
+
+.brand-name {
+    color: #1e2e60;
+    font-weight: bold;
+}
+
+.home-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+    .auth-buttons .btn {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 8px;
+        background-color: #6ec6ca;
+        color: white;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .auth-buttons .btn:hover {
+            background-color: #55b3b7;
+        }
+
+
+button, .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.blue-btn {
+    background: #3f8efc;
+    color: white;
+}
+
+.green-btn {
+    background: #6ec6ca;
+    color: white;
+}
+
+.red-btn {
+    background: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+    .red-btn:hover {
+        background: #f8d7da;
+        color: #b02a37;
+    }
+
+
+.profile-card {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.profile-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #e2f1f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-icon {
+    font-size: 2rem;
+}
+
+.profile-info h2 {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #1e2e40;
+}
+
+.profile-email {
+    color: #556677;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+}
+
+    .profile-actions .btn {
+        width: 140px;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+
+
+.recent-posts-wrapper {
+    padding: 0 1rem;
+}
+
+.recent-posts-title {
+    text-align: center;
+    color: #445566;
+    margin-bottom: 2rem;
+}
+
+.post-card {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    height: 100%;
+}
+
+    .post-card:hover {
+        transform: translateY(-3px);
+    }
+
+.post-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.post-content h5 {
+    font-weight: 600;
+    color: #223344;
+}
+
+.post-content p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.soft-navbar {
+    background: transparent;
+    padding: 1rem 2rem;
+    box-shadow: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.brand-text {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #2b3a55;
+    text-decoration: none;
+}
+
+.nav-simple {
+    font-weight: 500;
+    font-size: 1rem;
+    background: none;
+    color: #2c3e50 !important;
+    border: none;
+}
+
+    .nav-simple:hover {
+        color: #1abc9c !important;
+        text-decoration: underline;
+    }
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 0.4rem 0.6rem;
+    gap: 0.4rem;
+    width: 230px;
+    transition: box-shadow 0.3s ease;
+}
+
+    .search-container:hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-container input[type="search"] {
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 0.5rem 0.8rem;
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .search-container button {
+        background-color: #3498db;
+        border: none;
+        color: white;
+        padding: 0.4rem 0.9rem;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+        .search-container button:hover {
+            background-color: #2980b9;
+        }
+
+
+.profile-actions .btn,
+.profile-actions button {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+    background: #f0faff;
+    border: none;
+    border-radius: 14px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    box-shadow: inset 4px 4px 8px #dbefff, inset -4px -4px 8px #ffffff;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.3s ease;
+}
+
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px #bde8ec;
+    }
+
+label {
+    font-weight: 500;
+    color: #445566;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+}
+
+
+.form-card {
+    background: #fdfefe;
+    border-radius: 25px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    margin: 3rem auto;
+}
+
+    
+    .form-card .btn {
+        width: 100%;
+        padding: 0.7rem;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        background: #6ec6ca;
+        color: white;
+        border: none;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+        .form-card .btn:hover {
+            background: #55b3b7;
+        }

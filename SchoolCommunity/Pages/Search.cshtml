@@ -1,0 +1,46 @@
+﻿@page
+@model SchoolCommunity.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+<h2>Search Notes or Users</h2>
+
+<form method="get">
+    <input asp-for="Query" placeholder="Enter keyword..." />
+    <button type="submit">Search</button>
+</form>
+
+@if (Model.Query != null)
+{
+    <h3>Results for "@Model.Query"</h3>
+
+    @if (!Model.PostResults.Any() && !Model.UserResults.Any())
+    {
+        <p>No results found.</p>
+    }
+
+    @if (Model.PostResults.Any())
+    {
+        <h4>Posts:</h4>
+        <ul>
+            @foreach (var post in Model.PostResults)
+            {
+                <li>
+                    <a asp-page="/Post/Details" asp-route-id="@post.Id">@post.Title</a>
+                    <br /><small>By @post.User?.Username</small> 
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Model.UserResults.Any())
+    {
+        <h4>Users:</h4>
+        <ul>
+            @foreach (var user in Model.UserResults)
+            {
+                <li>@user.Username - @user.Email</li>
+            }
+        </ul>
+    }
+}

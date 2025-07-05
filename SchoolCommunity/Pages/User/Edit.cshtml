@@ -1,0 +1,33 @@
+﻿@page
+@model SchoolCommunity.Pages.User.EditModel
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+<h2>Edit Your Profile</h2>
+
+<form method="post">
+    <div>
+        <label>Username:</label>
+        <input asp-for="InputUser.Username" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input asp-for="InputUser.Email" />
+    </div>
+    <div>
+        <label>Bio:</label>
+        <textarea asp-for="InputUser.Bio"></textarea>
+    </div>
+    <div>
+        <label>Profile Picture URL:</label>
+        <input asp-for="InputUser.ProfilePictureUrl" />
+    </div>
+    <div>
+        <label>New Password (optional):</label>
+        <input asp-for="NewPassword" type="password" />
+    </div>
+    <button type="submit">Save Changes</button>
+    <a asp-page="/User/Profile">Cancel</a>
+</form>
+
+<p>@Model.Message</p>
