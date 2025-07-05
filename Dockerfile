@@ -2,18 +2,20 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-# Copy everything and publish
+# Copy everything
 COPY . ./
-RUN dotnet publish "SchoolCommunity.csproj" -c Release -o /app/publish
 
-# Use runtime image to run the app
+# Run publish with correct path to the csproj
+RUN dotnet publish "SchoolCommunity/SchoolCommunity.csproj" -c Release -o /app/publish
+
+# Use runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Set URL and expose port for Render
+# Configure URL and expose port
 ENV ASPNETCORE_URLS=http://0.0.0.0:10000
 EXPOSE 10000
 
-# Run the app
+# Start the app
 ENTRYPOINT ["dotnet", "SchoolCommunity.dll"]
